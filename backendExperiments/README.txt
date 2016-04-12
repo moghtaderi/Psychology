@@ -1,12 +1,10 @@
---JONATHAN SEKELA
---4/11/2016
+--Jonathan Sekela
+--4/12/2016
 
-  v8 holds the Google V8 library data. the folder,
+  NEW PLAN: we create regular c++ programs compilable with g++,
+  then use the javascript to take their output and do stuff
+  with it. According to Thomas:
 
-    USER-MADE-PROGS,
+    https://nodejs.org/api/child_process.html
 
-  contains everything I've created to test the library.
-  To edit, go to that folder.
-
-  TO COMPILE:
-    node-gyp configure program.cpp
+  Is our friend. And it is! Good for us!
