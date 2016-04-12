@@ -1,5 +1,5 @@
 #include <node.h>
-#include <v8.h>
+#include <include/v8.h>
 
 using namespace v8;
 
