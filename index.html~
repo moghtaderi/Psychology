@@ -6,11 +6,11 @@
   <meta charset="utf-8">
   <title>ASM</title>
   <script>
-    var count = 0;
-    function addElement() {
-       document.getElementById("boxy").innerHTML += '<div class="attribute"><div class="attributeweight">' + count + '</div></div>';
-       count++;
-    }
+      function addElement() {
+            alert("addElement1");
+               document.getElementById("boxy").innerHTML += '<div class="attribute"><div class="attributeweight">0.1234</div></div>';
+                  alert("addElement2");
+               }
    </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Webflow">

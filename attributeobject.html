@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
 <!-- Last Published: Mon Apr 11 2016 20:30:17 GMT+0000 (UTC) -->
-<html data-wf-site="570ac65210732fe2490f2c7c" data-wf-page="570ac65210732fe2490f2c7d">
+<html data-wf-site="570ac65210732fe2490f2c7c" data-wf-page="570c0798bcb8841d6082132d">
 <head>
   <meta charset="utf-8">
-  <title>ASM</title>
-  <script>
-    var count = 0;
-    function addElement() {
-       document.getElementById("boxy").innerHTML += '<div class="attribute"><div class="attributeweight">' + count + '</div></div>';
-       count++;
-    }
-   </script>
+  <title>attributeObject</title>
+  <meta property="og:title" content="attributeObject">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Webflow">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
@@ -29,21 +23,9 @@
   <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
   <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
 </head>
-<body class="background">
-  <h1 class="header">Activation-Selection Model Simulator</h1>
-  <div class="maindiv">
-    <div class="w-row outputrow">
-      <div class="w-col w-col-6 columnclass">
-         <div id="boxy" class="displayattributes">
-            <div class="attribute">
-               <div class="attributeweight">0.1234</div>
-            </div>
-         </div>
-      </div>
-      <div class="w-col w-col-6 columnclass">
-        <div class="displayattributes"></div>
-      </div>
-    </div><a class="w-button primingbutton leftbutton">Dominant Prime</a><a href="#" class="w-button primingbutton middlebutton">Secondary Prime</a><a href="#" class="w-button primingbutton rightbutton" onclick="addElement();">Neutral Prime</a>
+<body>
+  <div class="attribute">
+    <div class="attributeweight">0.1234</div>
   </div>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script type="text/javascript" src="js/webflow.js"></script>
