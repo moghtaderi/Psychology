@@ -20,17 +20,32 @@ public:
 
   void setProbability();
     //sets probability based on priming and activation
+    //probability's function will need to be adjusted
+    //based on testing that happens
 
   double getActivation();
+    //returns activation variable
 
   double getPriming();
+    //returns priming variable
 
   double getProbability();
+    //returns probability variable
+  
+  void prime();
+    //primes node, increasing activation and priming
+    //called by nodeArrType's prime() function
+
+  void deactivate();
+    //decreases activation when called
+    //don't know how this one will work yet
+    //maybe pass values for border color to the JS...?
 
 
 
 private:
-  int activation;        //increases probability when higher
-  double priming;        //increased when primed
+  //all values should be between 0 and 1 in simulation
+  double activation;        //increases probability when higher
+  double priming;        //increases when primed; affects probability
   double probability;    //determined by activation and priming together
 }
