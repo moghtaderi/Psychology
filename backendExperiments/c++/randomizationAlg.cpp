@@ -1,33 +1,46 @@
 #include <iostream>
 #include <stringg>
+#include <vector>
 
 using namespace std;
 
-//needs 2 arrays of equal number, weight to distribute
-void randomInit(mass,arr1,arr2)
+//needs 2 arrays of equal number, weight to distribute, number of elements in the arrays
+void randomInit(int W, int numElem,int arr1[],int arr2[])
 {
+  vector<int> done1;
+  vector<int> done2;
+  //initialize done1 and done2 with numbers to be removed upon assignment of weight
+  for(int i=0;i < numElem;i++) {
+    done1.push_back(i);
+    done2.push_back(i);
+  }
+  //arr1 assignment
+  double arr1Weight=W;
+  int randPlace;
+  int randWeight;
+  int currentElems=numElem;                          //number will be decremented, so is copy of numElem
+  while(arr1Weight > 0 and currentElems>0) {
+    randPlace=rand() % currentElems;                 //random integer between 0 and numElem
+    randWeight=(double)rand()%RAND_MAX;              //random double between 0 and 1
+
+    arr1[done1[randPlace]]=randWeight;
+
+    done1.erase(done1[randPlace]);
+    currentElems--;
+    arr1Weight-=randWeight;
+  }
+  //arr2 assignment
+  double arr2Weight=W;
+  currentElems=numElem;
+  while(arr2Weight>0 and currentElems>0) {
+    randPlace=rand() % currentElems;
+    randWeight=(double)rand()%RAND_MAX;
+
+    arr2[done[randPlace]]=randWeight;
+
+    done2.erase(done2[randPlace]);
+    currentElems--;
+    arr2Weight-= randWeight;
+  }
 
 }
-
-
-
-// Allocates probability mass W randomly to n  variables a1, a2, ... , an
-// subject to constraints that, a1+ a2 + ... + an = W and for all 0<= i <= n, 0.0 <= ai <= 1.0
-// Input:  total probability mass 0 <= W  <= n to distribute to n variables
-// Output: updated values of the ai variables
-U ← {}; J ← {1,2,...,n}   // set of variable indices used so far, and to be used/to draw from
-
-// repeat while still some weight to allocate and more than a left to set
-while |J| >1 and 0 <  W and W <  |J| 
-// prevents low indices from always being ones that have more freedom 
-  choose index j from set J at random  
-  remove index j from set J and add to set U
-  do 
-    set aj to random decimal value between 0.0 and 1.0
-  while W - aj > |J|  // prevents choosing too small a value for aj 
-        // reduce weight left to be distributed
-  W ←W - aj
-  divide remaining weight W among remaining variables whose index is still in J 
-
-Note: Consider using small fudge factor g to subtract and add to bound for outer while loop, i.e.
-while |J| >1 and 0 <  W - g and W + g <  |J| ?
