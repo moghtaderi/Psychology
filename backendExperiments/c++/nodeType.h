@@ -16,7 +16,7 @@ public:
   void setPriming(double val);
     //sets priming to a value between 0 and 1:
     //this is the number that gets displayed
-    //in the circles on the page.
+    //in the circles on the front end page.
 
   void setProbability();
     //sets probability based on priming and activation
@@ -35,6 +35,8 @@ public:
   void prime();
     //primes node, increasing activation and priming
     //called by nodeArrType's prime() function
+    //due to the nature of prime(), setProbability has to
+    //be called either directly after or within this.
 
   void deactivate();
     //decreases activation when called
