@@ -119,6 +119,8 @@
   border: 3px solid #f1f1f1;
   border-radius: 50px;
   background-color: #228b83;
+  float: left;
+  margin: 5px 5px 5px 5px;
 }
 
 .attributeweight {
