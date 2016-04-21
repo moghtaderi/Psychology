@@ -6,7 +6,7 @@ using namespace std;
 class nodeType
 {
 public:
-  nodeType(double active=0,double weightval=.5,double primesettingval=.1,double activesettingval=.1);
+  nodeType(double active=1,double weightval=.5,double primesettingval=.1,double activesettingval=.1);
     //constructor
 
   void setMultiplier(double active);
@@ -58,8 +58,7 @@ public:
 
 
 private:
-  //all values should be between 0 and 1 in simulation
-  double multiplier;        //increases probability when higher
+  double multiplier;        //increases probability when higher - minimum is 1
   double weight;           //increases when primed; affects probability
   double probability;       //determined by multiplier and weight together
   double primeSetting;      //how much weight increases when prime() is called

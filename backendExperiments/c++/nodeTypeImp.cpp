@@ -101,8 +101,7 @@ void prime()
 //================================================================================================
 void deactivate()
 {
-  multiplier=0;        //maybe multiplier-=.1, and then nodeArrType has deactivate
-                       //function to call through in a loop and deactivate
-		       //gradually in that manner? Like wherever a node is active,
-		       //deactivate it a little.
+  if(multiplier>(1+multiplierSetting))
+    multiplier-=multiplierSetting;
+  else multiplier=1;
 }

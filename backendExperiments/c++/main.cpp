@@ -13,7 +13,7 @@ int main(int argc,char* argv[])
   numOfNodes=atoi(argv[1]);
   nodeType nodes[2*numOfNodes];
   //initialize node weights in the array
-  randomizationAlg(numOfNodes/2*10,numOfNodes,nodes);
+  randomInit(numOfNodes/2*10,numOfNodes,nodes);
 
   string inputPhrase;
   cin << inputPhrase;
@@ -36,6 +36,7 @@ int main(int argc,char* argv[])
   return 0;
 }
 
+//=======================================================================================
 void randomInit(int W, int numElem,nodeType nodes[])
 {
   vector<int> done1;
@@ -67,11 +68,10 @@ void randomInit(int W, int numElem,nodeType nodes[])
     randPlace=rand() % currentElems;
     randWeight=(double)rand()%RAND_MAX;
 
-    node2[numElems+done[randPlace]]=randWeight;
+    nodes[numElems+done2[randPlace]]=randWeight;
 
     done2.erase(done2[randPlace]);
     currentElems--;
     arr2Weight-= randWeight;
   }
 }
-
