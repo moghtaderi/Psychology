@@ -5,7 +5,8 @@
 using namespace std;
 
 //needs 2 arrays of equal number, weight to distribute, number of elements in the arrays
-void randomInit(int W, int numElem,int arr1[],int arr2[])
+//numElem=the number of nodes in ONE SECTION OF NODES.
+void randomInit(int W, int numElem,nodeType nodes[])
 {
   vector<int> done1;
   vector<int> done2;
@@ -23,7 +24,7 @@ void randomInit(int W, int numElem,int arr1[],int arr2[])
     randPlace=rand() % currentElems;                 //random integer between 0 and numElem
     randWeight=(double)rand()%RAND_MAX;              //random double between 0 and 1
 
-    arr1[done1[randPlace]]=randWeight;
+    nodes[done1[randPlace]].setWeight(randWeight);
 
     done1.erase(done1[randPlace]);
     currentElems--;
@@ -36,7 +37,7 @@ void randomInit(int W, int numElem,int arr1[],int arr2[])
     randPlace=rand() % currentElems;
     randWeight=(double)rand()%RAND_MAX;
 
-    arr2[done[randPlace]]=randWeight;
+    node2[numElems+done[randPlace]]=randWeight;
 
     done2.erase(done2[randPlace]);
     currentElems--;
