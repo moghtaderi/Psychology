@@ -6,7 +6,7 @@ using namespace std;
 class nodeType
 {
 public:
-  nodeType(double active=0,double priming=.5);
+  nodeType(double active=0,double primingval=.5,double primesettingval=.1,double activesettingval=.1);
     //constructor
 
   void setActivation(double active);
@@ -23,6 +23,12 @@ public:
     //probability's function will need to be adjusted
     //based on testing that happens
 
+  void setPrimeSetting(double val);
+    //sets primeSetting
+
+  void setActivationSetting(double val);
+    //sets primeActivation
+
   double getActivation();
     //returns activation variable
 
@@ -31,6 +37,12 @@ public:
 
   double getProbability();
     //returns probability variable
+
+  double getPrimeSetting();
+    //returns primeSetting variable
+
+  double getActivationSetting();
+    //returns activationSetting variable
   
   void prime();
     //primes node, increasing activation and priming
@@ -48,6 +60,8 @@ public:
 private:
   //all values should be between 0 and 1 in simulation
   double activation;        //increases probability when higher
-  double priming;        //increases when primed; affects probability
-  double probability;    //determined by activation and priming together
+  double priming;           //increases when primed; affects probability
+  double probability;       //determined by activation and priming together
+  double primeSetting;      //how much priming increases when prime() is called
+  double activationSetting; //how much activation increases when prime() is called
 }
