@@ -39,7 +39,7 @@ void nodeType::setProbabilty()
 }
 
 //================================================================================================
-void nodeType::setPrimeSetting(int val)
+void nodeType::setPrimeSetting(double val)
 {
   if(val>0 and val<1)
     primeSetting=val;
@@ -47,7 +47,7 @@ void nodeType::setPrimeSetting(int val)
 }
 
 //================================================================================================
-void nodeType::setMultiplierSetting(int val)
+void nodeType::setMultiplierSetting(double val)
 {
   if(val>0 and val<1)
     multiplierSetting=val;
@@ -87,11 +87,11 @@ double nodeType::getMultiplierSetting()
 //================================================================================================
 void prime()
 {
-  if(weight<.9)
+  if(weight<1-primeSetting)
     weight+=primeSetting;        //to increase or decrease weight rate, mess with this.
   else weight=1;
 
-  if(multiplier<.9)
+  if(multiplier<1-multiplierSetting)
     multiplier+=multiplierSetting;     //to increase or decrease multiplier rate, mess with this.
   else multiplier=1;
 
