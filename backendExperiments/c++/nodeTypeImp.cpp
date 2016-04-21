@@ -6,35 +6,35 @@
 using namespace std;
 
 
-nodeType::nodeType(double active,double primingval,double primesettingval,double activesettingval)
+nodeType::nodeType(double active,double weightval,double primesettingval,double activesettingval)
 {
-  setActivation(active);
-  setPriming(val);
+  setMultiplier(active);
+  setWeight(val);
   setProbability();
 }
 
 //================================================================================================
-void nodeType::setActivation(double active)
+void nodeType::setMultiplier(double active)
 {
   if(active >= 0 and active <= 1)
-    activation=active;
+    multiplier=active;
   else
-    cerr << "Error: invalid value for activation - expects double between 0 and 1";
+    cerr << "Error: invalid value for multiplier - expects double between 0 and 1";
 }
 
 //================================================================================================
-void nodeType::setPriming(double val)
+void nodeType::setWeight(double val)
 {
   if(val>=0 and val<=1)
-    priming=val;
+    weight=val;
   else
-    cerr << "Error: invalid value for priming - expects double between 0 and 1";
+    cerr << "Error: invalid value for weight - expects double between 0 and 1";
 }
 
 //================================================================================================
 void nodeType::setProbabilty()
 {
-  probability=(activation+probability)/2;    //if weird values occur, CHECK
+  probability=(multiplier+probability)/2;    //if weird values occur, CHECK
                                              //AND MODIFY THIS FUNCTION
 }
 
@@ -47,23 +47,23 @@ void nodeType::setPrimeSetting(int val)
 }
 
 //================================================================================================
-void nodeType::setActivationSetting(int val)
+void nodeType::setMultiplierSetting(int val)
 {
   if(val>0 and val<1)
-    activationSetting=val;
-  else cerr << "Error: invalid value for activationSetting - expects double between 0 and 1";
+    multiplierSetting=val;
+  else cerr << "Error: invalid value for multiplierSetting - expects double between 0 and 1";
 }
 
 //================================================================================================
-double nodeType::getActivation()
+double nodeType::getMultiplier()
 {
-  return activation;
+  return multiplier;
 }
 
 //================================================================================================
-double nodeType::getPriming()
+double nodeType::getWeight()
 {
-  return priming;
+  return weight;
 }
 
 //================================================================================================
@@ -79,21 +79,21 @@ double nodeType::getPrimeSetting()
 }
 
 //================================================================================================
-double nodeType::getActivationSetting()
+double nodeType::getMultiplierSetting()
 {
-  return activationSetting;
+  return multiplierSetting;
 }
 
 //================================================================================================
 void prime()
 {
-  if(priming<.9)
-    priming+=priming;        //to increase or decrease priming rate, mess with this.
-  else priming=1;
+  if(weight<.9)
+    weight+=primeSetting;        //to increase or decrease weight rate, mess with this.
+  else weight=1;
 
-  if(activation<.9)
-    activation+=activationSetting;     //to increase or decrease activation rate, mess with this.
-  else activation=1;
+  if(multiplier<.9)
+    multiplier+=multiplierSetting;     //to increase or decrease multiplier rate, mess with this.
+  else multiplier=1;
 
   setProbability();
 }
@@ -101,7 +101,7 @@ void prime()
 //================================================================================================
 void deactivate()
 {
-  activation=0;        //maybe activation-=.1, and then nodeArrType has deactivate
+  multiplier=0;        //maybe multiplier-=.1, and then nodeArrType has deactivate
                        //function to call through in a loop and deactivate
 		       //gradually in that manner? Like wherever a node is active,
 		       //deactivate it a little.
