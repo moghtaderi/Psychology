@@ -10,13 +10,14 @@ void randomInit(int @,int numElem,nodeType nodes[]);
 //argv[1] is the number of nodes in ONE SECTION OF NODES.
 int main(int argc,char* argv[])
 {
-  numOfNodes=atoi(argv[1]);
+  int numOfNodes=atoi(argv[1]);
+  double ratio=atoi(argv[2]);
   nodeType nodes[2*numOfNodes];
   //initialize node weights in the array
-  randomInit(numOfNodes/2*10,numOfNodes,nodes);
+  randomInit(ratio,numOfNodes,nodes);
 
   string inputPhrase;
-  cin << inputPhrase;
+  cin >> inputPhrase;
   while (inputPhrase != "0") {
     //code for running simulation goes here.
     //basically, javascript calls the executable when
@@ -31,7 +32,7 @@ int main(int argc,char* argv[])
       cerr << "Error: Unknown command";
     }
 
-    cin << inputPhrase;
+    cin >> inputPhrase;
   }
   return 0;
 }
@@ -47,7 +48,7 @@ void randomInit(int W, int numElem,nodeType nodes[])
     done2.push_back(i);
   }
   //arr1 assignment
-  double arr1Weight=W;
+  double arr1Weight=(double)numElem/2;
   int randPlace;
   int randWeight;
   int currentElems=numElem;                          //number will be decremented, so is copy of numElem
@@ -61,8 +62,16 @@ void randomInit(int W, int numElem,nodeType nodes[])
     currentElems--;
     arr1Weight-=randWeight;
   }
+  int counter=0;
+  while(arr1Weight>.1) {
+    if(nodes[counter].getWeight<=.9)
+      nodes[counter].setWeight(nodes[counter++].getWeight()+.1);
+    arr1Weight-=.1;
+  }
+  if(arr1Weight>0) nodes[counter].setWeight(nodes[counter].getWeight()+arr1Weight);
+
   //arr2 assignment
-  double arr2Weight=W;
+  double arr2Weight=(double)numElem/2;
   currentElems=numElem;
   while(arr2Weight>0 and currentElems>0) {
     randPlace=rand() % currentElems;
@@ -74,4 +83,10 @@ void randomInit(int W, int numElem,nodeType nodes[])
     currentElems--;
     arr2Weight-= randWeight;
   }
+  while(arr1Weight>.1) {
+    if(nodes[counter].getWeight<=.9)
+      nodes[counter].setWeight(nodes[counter++].getWeight()+.1);
+    arr1Weight-=.1;
+  }
+  if(arr1Weight>0) nodes[counter].setWeight(nodes[counter].getWeight()+arr1Weight);
 }
