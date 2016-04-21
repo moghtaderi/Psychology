@@ -8,7 +8,8 @@ using namespace std;
 
 nodeArrType::nodeArrType(int nodeNum)
 {
-
+  setNumOfNodes(nodeNum);
+  createNodeArray();
 }
 
 void nodeArrType::setNumOfNodes(int num)
@@ -23,7 +24,12 @@ int nodeArrType::getNumOfNodes()
   return numOfNodes;
 }
 
-void setNodeArray()
+void nodeArrType::createNodeArray()
+{
+  nodeArray=new nodeType[numOfNOdes];
+}
+
+void nodeArrType::setNodeArray()
 {
 
 }

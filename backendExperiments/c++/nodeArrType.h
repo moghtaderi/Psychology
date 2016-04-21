@@ -20,7 +20,7 @@ public:
   int getNumOfNodes();
     //returns numOfNodes
 
-  void setNodeArray();
+  void createNodeArray();
     //requires numOfNodes to be initialized first
     //sets up nodeArray with the correct number
     //of nodes

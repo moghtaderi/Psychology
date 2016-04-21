@@ -6,8 +6,9 @@
 
 using namespace std;
 
-int main()
+int main(int argc,char* argv[])
 {
+  nodeArrType Nodes(atoi(argv[1]));
   string inputPhrase;
   cin << inputPhrase;
   while (inputPhrase != "0") {
@@ -18,7 +19,11 @@ int main()
     //stuff to the javascript while it hasn't received
     //the "terminate" instruction.
 
-    
+    if(inputPhrase=="settings") {
+      
+    } else {
+      cerr << "Error: Unknown command";
+    }
 
     cin << inputPhrase;
   }
