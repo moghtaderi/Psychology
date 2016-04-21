@@ -38,7 +38,7 @@ int main(int argc,char* argv[])
 }
 
 //=======================================================================================
-void randomInit(int W, int numElem,nodeType nodes[])
+void randomInit(int ratio, int numElem,nodeType nodes[])
 {
   vector<int> done1;
   vector<int> done2;
@@ -50,43 +50,28 @@ void randomInit(int W, int numElem,nodeType nodes[])
   //arr1 assignment
   double arr1Weight=(double)numElem/2;
   int randPlace;
-  int randWeight;
-  int currentElems=numElem;                          //number will be decremented, so is copy of numElem
-  while(arr1Weight > 0 and currentElems>0) {
-    randPlace=rand() % currentElems;                 //random integer between 0 and numElem
-    randWeight=(double)rand()%RAND_MAX;              //random double between 0 and 1
+  double randWeight1;
+  double randWeight2;
+  int currentElems=numElem;                      //number will be decremented, so is copy of numElem
 
-    nodes[done1[randPlace]].setWeight(randWeight);
+  while(currentElems>0) {
+    randPlace=rand() % currentElems;             //random integer between 0 and numElem
+    randWeight1=(double)rand()%RAND_MAX;         //random double between 0 and 1
 
-    done1.erase(done1[randPlace]);
-    currentElems--;
-    arr1Weight-=randWeight;
+    if((randWeight1/ratio)<=1)
+      randWeight2=randWeight1/ratio;
+    else randWeight2=randWeight1*ratio;
+
+    if(randWeight1>randWeight2) {
+      nodes[done1[randPlace]].setWeight(randWeight1);
+      nodes[numElem+done1[randPlace]].setWeight(randWeight2);
+      done1.erase(done1[randPlace]);
+      currentElems--;
+    } else {
+      nodes[done1[randPlace]].setWeight(randWeight2);
+      nodes[numElem+done1[randPlace]].setWeight(randWeight1);
+      done1.erase(done1[randPlace]);
+      currentElems--;
+    }
   }
-  int counter=0;
-  while(arr1Weight>.1) {
-    if(nodes[counter].getWeight<=.9)
-      nodes[counter].setWeight(nodes[counter++].getWeight()+.1);
-    arr1Weight-=.1;
-  }
-  if(arr1Weight>0) nodes[counter].setWeight(nodes[counter].getWeight()+arr1Weight);
-
-  //arr2 assignment
-  double arr2Weight=(double)numElem/2;
-  currentElems=numElem;
-  while(arr2Weight>0 and currentElems>0) {
-    randPlace=rand() % currentElems;
-    randWeight=(double)rand()%RAND_MAX;
-
-    nodes[numElems+done2[randPlace]]=randWeight;
-
-    done2.erase(done2[randPlace]);
-    currentElems--;
-    arr2Weight-= randWeight;
-  }
-  while(arr1Weight>.1) {
-    if(nodes[counter].getWeight<=.9)
-      nodes[counter].setWeight(nodes[counter++].getWeight()+.1);
-    arr1Weight-=.1;
-  }
-  if(arr1Weight>0) nodes[counter].setWeight(nodes[counter].getWeight()+arr1Weight);
 }
