@@ -2,10 +2,12 @@
 #include <string>
 
 #include "nodeType.h"
+#include <vector>
+
 
 using namespace std;
 
-void randomInit(int ratio,int numElem,nodeType nodes[]);
+void randomInit(double ratio,int numElem,nodeType nodes[]);
 
 int main()
 {
@@ -15,7 +17,7 @@ int main()
 }
 
 //=======================================================================================
-void randomInit(int ratio, int numElem,nodeType nodes[])
+void randomInit(double ratio, int numElem,nodeType nodes[])
 {
   vector<int> done1;
   vector<int> done2;
@@ -33,7 +35,7 @@ void randomInit(int ratio, int numElem,nodeType nodes[])
 
   while(currentElems>0) {
     randPlace=rand() % currentElems;             //random integer between 0 and numElem
-    randWeight1=(double)rand()%RAND_MAX;         //random double between 0 and 1
+    randWeight1=(double)rand()/RAND_MAX;         //random double between 0 and 1
 
     if((randWeight1/ratio)<=1)
       randWeight2=randWeight1/ratio;
@@ -42,12 +44,12 @@ void randomInit(int ratio, int numElem,nodeType nodes[])
     if(randWeight1>randWeight2) {
       nodes[done1[randPlace]].setWeight(randWeight1);
       nodes[numElem+done1[randPlace]].setWeight(randWeight2);
-      done1.erase(done1[randPlace]);
+      done1.erase(done1.begin()+randPlace);
       currentElems--;
     } else {
       nodes[done1[randPlace]].setWeight(randWeight2);
       nodes[numElem+done1[randPlace]].setWeight(randWeight1);
-      done1.erase(done1[randPlace]);
+      done1.erase(done1.begin()+randPlace);
       currentElems--;
     }
   }

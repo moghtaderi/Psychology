@@ -63,4 +63,4 @@ private:
   double probability;       //determined by multiplier and weight together
   double primeSetting;      //how much weight increases when prime() is called
   double multiplierSetting; //how much multiplier increases when prime() is called
-}
+};
