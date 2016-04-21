@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void randomInit(int ratio=.74,int numElem,nodeType nodes[]);
+void randomInit(int ratio,int numElem,nodeType nodes[]);
 
 //argv[1] is the number of nodes in ONE SECTION OF NODES.
 int main(int argc,char* argv[])
@@ -38,7 +38,7 @@ int main(int argc,char* argv[])
 }
 
 //=======================================================================================
-void randomInit(int ratio=.74, int numElem,nodeType nodes[])
+void randomInit(int ratio, int numElem,nodeType nodes[])
 {
   vector<int> done1;
   vector<int> done2;
