@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Apr 22 2016 21:16:40 GMT+0000 (UTC) -->
+<html data-wf-site="570ac65210732fe2490f2c7c" data-wf-page="571a8ce9136ec7353ff2b275">
+<head>
+  <meta charset="utf-8">
+  <title>Settings</title>
+  <meta property="og:title" content="Settings">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="css/asm-b1d444.webflow.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Exo:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Montserrat:400,700"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
+  <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+</head>
+<body>
+  <div class="w-section">
+    <div class="w-container">
+      <h1>Simulation Settings</h1>
+    </div>
+    <div class="w-container">
+      <div>
+        <div class="w-form">
+          <form id="email-form" name="email-form" data-name="Email Form">
+            <label for="numOfNodes">Number of Nodes:</label>
+            <div>Enter the number of nodes associated with each word.
+              <br>For Example, if you want "Nun" to have 50 nodes and "None" to have 50 nodes, type the number 50.</div>
+            <input id="numOfNodes" type="text" placeholder="Number of Nodes" name="numOfNodes" data-name="numOfNodes" class="w-input">
+            <label for="email">Weight Increase:</label>
+            <div>Enter how much you want the weight of a node to increase when primed.
+              <br>Remember, each node's weight can only be a maximum of 1, so keep your increase less than 1.</div>
+            <input id="weightIncrease" type="email" placeholder="Weight Increase" name="weightIncrease" data-name="weightIncrease" required="required" class="w-input">
+            <div><strong>Multiplier Increase:</strong>
+            </div>
+            <div>Enter how much you want a node's multiplier to increase when primed.
+              <br>A node's probability is found by multiplying its weight by its multiplier (among other things),
+              <br>so it starts out at 1 and increases every time the node is primed.</div>
+            <input id="multiplierIncrease" type="text" placeholder="Multiplier Increase" name="multiplierIncrease" required="required" data-name="multiplierIncrease" class="w-input">
+            <input type="submit" value="Submit" data-wait="Please wait..." class="w-button">
+          </form>
+          <div class="w-form-done">
+            <p>Thank you! Your submission has been received!</p>
+          </div>
+          <div class="w-form-fail">
+            <p>Oops! Something went wrong while submitting the form</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/webflow.js"></script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>
