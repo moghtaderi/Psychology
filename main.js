@@ -3,6 +3,8 @@
 const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
+const ipc=require('ipc');  //as far as Reza knows, this allows
+                           //different pages to talk to one another
 
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -29,6 +31,14 @@ app.on('ready', function() {
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();
+
+  var settingsWindow = new BrowserWindow({width: 700, height: 900,
+                                          show: false})
+  settingsWindow.loadUrl('file://'+ __dirname + '/Settings.html')
+
+  ipc.on('show-settings', function() {
+    settingsWindow.show()
+  })
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
