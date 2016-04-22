@@ -1,0 +1,87 @@
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 
+
+
+CURRENT ELEMS: 20
+randPlace: 17
+randWeight1: 0.485183
+randWeight2: 0.655653
+CURRENT ELEMS: 19
+randPlace: 3
+randWeight1: 0.504196
+randWeight2: 0.681346
+CURRENT ELEMS: 18
+randPlace: 0
+randWeight1: 0.389233
+randWeight2: 0.525991
+CURRENT ELEMS: 17
+randPlace: 12
+randWeight1: 0.282052
+randWeight2: 0.381151
+CURRENT ELEMS: 16
+randPlace: 14
+randWeight1: 0.201971
+randWeight2: 0.272934
+CURRENT ELEMS: 15
+randPlace: 13
+randWeight1: 0.25779
+randWeight2: 0.348365
+CURRENT ELEMS: 14
+randPlace: 1
+randWeight1: 0.09476
+randWeight2: 0.128054
+CURRENT ELEMS: 13
+randPlace: 10
+randWeight1: 0.770837
+randWeight2: 0.570419
+CURRENT ELEMS: 12
+randPlace: 6
+randWeight1: 0.303385
+randWeight2: 0.409979
+CURRENT ELEMS: 11
+randPlace: 9
+randWeight1: 0.569536
+randWeight2: 0.769644
+CURRENT ELEMS: 10
+randPlace: 5
+randWeight1: 0.196142
+randWeight2: 0.265057
+CURRENT ELEMS: 9
+randPlace: 2
+randWeight1: 0.672872
+randWeight2: 0.909287
+CURRENT ELEMS: 8
+randPlace: 4
+randWeight1: 0.28135
+randWeight2: 0.380203
+CURRENT ELEMS: 7
+randPlace: 4
+randWeight1: 0.687674
+randWeight2: 0.929289
+CURRENT ELEMS: 6
+randPlace: 3
+randWeight1: 0.310404
+randWeight2: 0.419465
+CURRENT ELEMS: 5
+randPlace: 3
+randWeight1: 0.986938
+randWeight2: 0.730334
+CURRENT ELEMS: 4
+randPlace: 1
+randWeight1: 0.132908
+randWeight2: 0.179606
+CURRENT ELEMS: 3
+randPlace: 0
+randWeight1: 0.655538
+randWeight2: 0.885862
+CURRENT ELEMS: 2
+randPlace: 0
+randWeight1: 0.459975
+randWeight2: 0.621588
+CURRENT ELEMS: 1
+randPlace: 0
+randWeight1: 0.61037
+randWeight2: 0.824825
+
+
+
+0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 0.525991 
