@@ -23,7 +23,7 @@ public:
     //probability's function will need to be adjusted
     //based on testing that happens
 
-  void setPrimeSetting(double val);
+  void setWeightSetting(double val);
     //sets primeSetting
 
   void setMultiplierSetting(double val);

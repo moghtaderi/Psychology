@@ -1,15 +1,16 @@
 #include <iostream>
 #include <string>
 #include "nodeType.h"
-#include "nodeArrType.h"
 
 using namespace std;
 
 
-nodeType::nodeType(double active,double weightval,double primesettingval,double activesettingval)
+nodeType::nodeType(double active,double weightval,double weightsettingval,double multipliersettingval)
 {
   setMultiplier(active);
-  setWeight(val);
+  setWeight(weightval);
+  setWeightSetting(weightsettingval);
+  setMultiplierSetting(multipliersettingval);
   setProbability();
 }
 
@@ -32,14 +33,14 @@ void nodeType::setWeight(double val)
 }
 
 //================================================================================================
-void nodeType::setProbabilty()
+void nodeType::setProbability()
 {
-  probability=(multiplier+probability)/2;    //if weird values occur, CHECK
-                                             //AND MODIFY THIS FUNCTION
+  probability=multiplier*weight;         //if weird values occur, CHECK
+                                         //AND MODIFY THIS FUNCTION
 }
 
 //================================================================================================
-void nodeType::setPrimeSetting(double val)
+void nodeType::setWeightSetting(double val)
 {
   if(val>0 and val<1)
     primeSetting=val;
@@ -85,7 +86,7 @@ double nodeType::getMultiplierSetting()
 }
 
 //================================================================================================
-void prime()
+void nodeType::prime()
 {
   if(weight<1-primeSetting)
     weight+=primeSetting;        //to increase or decrease weight rate, mess with this.
@@ -99,7 +100,7 @@ void prime()
 }
 
 //================================================================================================
-void deactivate()
+void nodeType::deactivate()
 {
   if(multiplier>(1+multiplierSetting))
     multiplier-=multiplierSetting;

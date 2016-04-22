@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <random>
 
 #include "nodeType.h"
-#include <vector>
 
 
 using namespace std;
@@ -12,7 +13,14 @@ void randomInit(double ratio,int numElem,nodeType nodes[]);
 int main()
 {
   nodeType nodes[40];
+  for(int i=0;i < 40;i++) {
+    cout << nodes[0].getWeight() << ' ';
+  }
+  cout << "\n\n\n";
   randomInit(.74,20,nodes);
+  for(int i=0;i < 40;i++) {
+    cout << nodes[0].getWeight() << ' ';
+  }
   return 0;
 }
 
