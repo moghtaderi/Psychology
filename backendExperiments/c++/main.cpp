@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <random>
+#include <ctime>
 
 #include "nodeType.h"
 
@@ -38,8 +41,9 @@ int main(int argc,char* argv[])
 }
 
 //=======================================================================================
-void randomInit(int ratio, int numElem,nodeType nodes[])
+void randomInit(double ratio, int numElem,nodeType nodes[])
 {
+  srand(time(NULL));
   vector<int> done1;
   vector<int> done2;
   //initialize done1 and done2 with numbers to be removed upon assignment of weight
@@ -55,22 +59,26 @@ void randomInit(int ratio, int numElem,nodeType nodes[])
   int currentElems=numElem;                      //number will be decremented, so is copy of numElem
 
   while(currentElems>0) {
+    cout << "CURRENT ELEMS: " << currentElems << endl;
     randPlace=rand() % currentElems;             //random integer between 0 and numElem
-    randWeight1=(double)rand()%RAND_MAX;         //random double between 0 and 1
+    cout << "randPlace: " << randPlace << endl;
+    randWeight1=(double)rand()/RAND_MAX;         //random double between 0 and 1
+    cout << "randWeight1: " << randWeight1 << endl;
 
     if((randWeight1/ratio)<=1)
       randWeight2=randWeight1/ratio;
     else randWeight2=randWeight1*ratio;
+    cout << "randWeight2: " << randWeight2 << endl;
 
     if(randWeight1>randWeight2) {
       nodes[done1[randPlace]].setWeight(randWeight1);
       nodes[numElem+done1[randPlace]].setWeight(randWeight2);
-      done1.erase(done1[randPlace]);
+      done1.erase(done1.begin()+randPlace);
       currentElems--;
     } else {
       nodes[done1[randPlace]].setWeight(randWeight2);
       nodes[numElem+done1[randPlace]].setWeight(randWeight1);
-      done1.erase(done1[randPlace]);
+      done1.erase(done1.begin()+randPlace);
       currentElems--;
     }
   }
