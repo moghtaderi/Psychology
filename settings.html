@@ -32,23 +32,24 @@
     <div class="w-container">
       <div>
         <div class="w-form">
-          <form id="email-form" name="email-form" data-name="Email Form">
+          <form id="settings-form" name="settings-form" data-name="Settings Form">
             <label for="numOfNodes">Number of Nodes:</label>
             <div>Enter the number of nodes associated with each word.
               <br>For Example, if you want "Nun" to have 50 nodes and "None" to have 50 nodes, type the number 50.</div>
-            <input id="numOfNodes" type="text" placeholder="Number of Nodes" name="numOfNodes" data-name="numOfNodes" class="w-input">
-            <label for="email">Weight Increase:</label>
+            <input id="numOfNodes" type="text" placeholder="Number of Nodes" name="numOfNodes" data-name="numOfNodes" class="w-input" value=".1" onClick="value=''">
+            <label for="weightIncrease">Weight Increase:</label>
             <div>Enter how much you want the weight of a node to increase when primed.
               <br>Remember, each node's weight can only be a maximum of 1, so keep your increase less than 1.</div>
-            <input id="weightIncrease" type="text" placeholder="Weight Increase" name="weightIncrease" data-name="weightIncrease" required="required" class="w-input">
+            <input id="weightIncrease" type="text" placeholder="Weight Increase" name="weightIncrease" data-name="weightIncrease" required="required" class="w-input" value=".1" onClick="value=''">
             <div><strong>Multiplier Increase:</strong>
             </div>
             <div>Enter how much you want a node's multiplier to increase when primed.
               <br>A node's probability is found by multiplying its weight by its multiplier (among other things),
               <br>so it starts out at 1 and increases every time the node is primed.</div>
-            <input id="multiplierIncrease" type="text" placeholder="Multiplier Increase" name="multiplierIncrease" required="required" data-name="multiplierIncrease" class="w-input">
-            <input type="submit" value="Submit" data-wait="Please wait..." class="w-button" onClick="submitSettings(document.email-form);">
+            <input id="multiplierIncrease" type="text" placeholder="Multiplier Increase" name="multiplierIncrease" required="required" data-name="multiplierIncrease" class="w-input" value=".1" onClick="value=''">
+	    <input type="submit" class="w-button" value="Submit" data-wait="Waiting on submission...">
           </form>
+	  <button class="w-button" data-wait="Waiting..." onClick="submibSettings(document.settings-form);">Submit</button>
           <div class="w-form-done">
             <p>Thank you! Your submission has been received!</p>
           </div>

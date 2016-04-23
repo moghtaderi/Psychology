@@ -16,7 +16,7 @@ app.on('ready',function() {
     show: false
   })
   settingsWindow.loadURL('file://' + __dirname + '/Settings.html')
-});
+  });
 
 var settingsWindow = new BrowserWindow({width: 700, height: 900,
                                           show: false});
@@ -28,6 +28,7 @@ ipc.on('show-settings', function() {
 
 function submitSettings(form)
 {
+  alert("THIS HAPPENS");
   var numOfNodes=form.numOfNodes.value;
   var weightIncrease=form.weightIncrease.value;
   var multiplierIncrease=form.weightIncrease.value;
