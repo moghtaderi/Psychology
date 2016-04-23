@@ -1,5 +1,5 @@
 /* Jonathan Sekela
- * 4/14/2016
+ * 4/22/2016
  * javascripts for backendExperiments with c++ and nodeJS
  */
 
@@ -9,6 +9,7 @@
 const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
+const ipcMain=require('electron').ipcMain;  //I THINK this handles comms between windows
 
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -45,7 +46,6 @@ app.on('ready', function() {
   });
 });
 
-/*****************BEGIN NON-INITALIZE CODE*****************/
 function hello()
 {
   const spawn = require('child_process').spawn;

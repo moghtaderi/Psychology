@@ -1,15 +1,18 @@
-var remote=require('remote')
-var Menu=remote.require('menu')
+const ipcRenderer=require('electron').ipcRenderer;
 
-var menu=Menu.buildFromTemplate([
-  {
-    label: 'ASMSim',
-    submenu: [
-      label: 'Settings',
-      click: function() {
-        
-      }
-    ]
-  }
-])
-Menu.setApplicationMenu(menu)
+
+function showSettings()
+{
+  const BrowserWindow=require('electron').remote.BrowserWindow;
+  var win=new BrowserWindow({width:700, height:900, show:false});
+  win.on('closed',function() {
+    win=null;
+  });
+  win.loadURL('file://' + __dirname + '/Settings.html');
+  win.show();
+}
+
+
+ipcRenderer.on('settingsSubmission',function(event,data) {
+  
+}

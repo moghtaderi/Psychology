@@ -3,6 +3,11 @@
 const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
+const ipcMain=require('electron').ipcMain;
+
+ipcMain.on('settingsSubmission',function(event,arg) {
+  
+}
 
 
 // Keep a global reference of the window object, if you don't, the window will
