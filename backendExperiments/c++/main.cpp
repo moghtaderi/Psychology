@@ -122,7 +122,7 @@ void changeSettings(nodeType nodes[],int* numNodes,int newNumNodes,int weightSet
   }
 }
 //=======================================================================================
-void primeDominant(nodeType nodes,int numNodes)
+void primeDominant(nodeType nodes[],int numNodes)
 {
   srand(time(NULL));
   int nodesToActivate=numNodes/5;  //we will activate 1/5 the number of nodes.
@@ -139,7 +139,7 @@ void primeDominant(nodeType nodes,int numNodes)
 }
 
 //=======================================================================================
-void primeSecondary(nodeType nodes,int numNodes)
+void primeSecondary(nodeType nodes[],int numNodes)
 {
 
 }
