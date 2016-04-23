@@ -47,9 +47,8 @@
               <br>A node's probability is found by multiplying its weight by its multiplier (among other things),
               <br>so it starts out at 1 and increases every time the node is primed.</div>
             <input id="multiplierIncrease" type="text" placeholder="Multiplier Increase" name="multiplierIncrease" required="required" data-name="multiplierIncrease" class="w-input" value=".1" onClick="value=''">
-	    <input type="submit" class="w-button" value="Submit" data-wait="Waiting on submission...">
           </form>
-	  <button class="w-button" data-wait="Waiting..." onClick="submibSettings(document.settings-form);">Submit</button>
+	  <button class="w-button" data-wait="Waiting..." onClick="submitSettings(document.getElementById('numOfNodes'),document.getElementById('weightIncrease'),document.getElementById('multiplierIncrease'));">Submit</button>
           <div class="w-form-done">
             <p>Thank you! Your submission has been received!</p>
           </div>

@@ -1,1 +1,1 @@
-g++ -o rand -std=c++11 nodeTypeImp.cpp randomizationAlg.cpp
+g++ -o main -std=c++11 main.cpp nodeTypeImp.cpp

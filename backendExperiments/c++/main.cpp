@@ -9,6 +9,12 @@
 using namespace std;
 
 void randomInit(int ratio,int numElem,nodeType nodes[]);
+void changeSettings(nodeType nodes[],int* numNodes,int newNumNodes,double weightSetting,double multiplierSetting);
+void primeDominant(nodeType nodes[],int numNodes);
+void primeSecondary(nodeType nodes[],int numNodes);
+
+int probabilitySkew=4;  //passed to primeDominant and primeSecondary to make sure
+                        //one side is favored above the other
 
 //argv[1] is the number of nodes in ONE SECTION OF NODES.
 int main(int argc,char* argv[])
@@ -21,6 +27,7 @@ int main(int argc,char* argv[])
 
   string inputPhrase;
   cin >> inputPhrase;
+  string outString;
   while (inputPhrase != "0") {
     //code for running simulation goes here.
     //basically, javascript calls the executable when
@@ -29,12 +36,37 @@ int main(int argc,char* argv[])
     //stuff to the javascript while it hasn't received
     //the "terminate" instruction.
 
+    int newNumNodes;        //for changeSettings - new number of nodes in array
+    int weightSetting;      //for changeSettings - new weight change factor
+    int multiplierSetting;  //for changeSettings - new multiplier change factor
+    outString="";  //output at the end of each loop to update the js nodes
     if(inputPhrase=="settings") {
-      
+      cin >> newNumNodes;
+      cin >> weightSetting;
+      cin >> multiplierSetting;
+      changeSettings(nodes,&numOfNodes,newNumNodes,weightSetting,multiplierSetting);
+      randomInit(ratio,numOfNodes,nodes);
+    } else if(inputPhrase=="primeDominant") {
+      primeDominant(nodes,numOfNodes);
+      outString+="{";
+      for(int i=0;i < 2*numOfNodes;i++) {
+        outString+=nodes[i].getWeight();
+        outString+=",";
+      }
+      outString+="}";
+    } else if(inputPhrase=="primeSecondary") {
+      primeSecondary(nodes,numOfNodes);
+      outString+="{";
+      for(int i=0;i < 2*numOfNodes;i++) {
+        outString+=nodes[i].getWeight();
+        outString+=",";
+      }
+      outString+="}";
     } else {
       cerr << "Error: Unknown command";
     }
 
+    cout << outString;
     cin >> inputPhrase;
   }
   return 0;
@@ -59,16 +91,12 @@ void randomInit(double ratio, int numElem,nodeType nodes[])
   int currentElems=numElem;                      //number will be decremented, so is copy of numElem
 
   while(currentElems>0) {
-    cout << "CURRENT ELEMS: " << currentElems << endl;
     randPlace=rand() % currentElems;             //random integer between 0 and numElem
-    cout << "randPlace: " << randPlace << endl;
     randWeight1=(double)rand()/RAND_MAX;         //random double between 0 and 1
-    cout << "randWeight1: " << randWeight1 << endl;
 
     if((randWeight1/ratio)<=1)
       randWeight2=randWeight1/ratio;
     else randWeight2=randWeight1*ratio;
-    cout << "randWeight2: " << randWeight2 << endl;
 
     if(randWeight1>randWeight2) {
       nodes[done1[randPlace]].setWeight(randWeight1);
@@ -82,4 +110,36 @@ void randomInit(double ratio, int numElem,nodeType nodes[])
       currentElems--;
     }
   }
+}
+
+void changeSettings(nodeType nodes[],int* numNodes,int newNumNodes,int weightSetting,int multiplierSetting)
+{
+  *numNodes=newNumNodes;
+  nodes=new nodeType[2 * newNumNodes];
+  for (int i=0;i < 2*newNumNodes;i++) {
+    nodes[i].setWeightSetting(weightSetting);
+    nodes[i].setMultiplierSetting(multiplierSetting);
+  }
+}
+//=======================================================================================
+void primeDominant(nodeType nodes,int numNodes)
+{
+  srand(time(NULL));
+  int nodesToActivate=numNodes/5;  //we will activate 1/5 the number of nodes.
+  int randPlace;
+  int prob;  //probability of selection
+  while(nodesToActivate>0) {
+    randPlace=rand()%(2*numNodes);
+    if(randPlace<numNodes) {
+      nodes[randPlace].prime();
+    } else {
+      
+    }
+  }
+}
+
+//=======================================================================================
+void primeSecondary(nodeType nodes,int numNodes)
+{
+
 }

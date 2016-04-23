@@ -1,7 +1,7 @@
 var app=require('app')
 var BrowserWindow=require('browser-window')
 var ipc=require('ipc')
-const ipcRenderer=require('electron').ipcRenderer;
+var ipcRenderer=require('electron').ipcRenderer;
 
 app.on('ready',function() {
   var mainWindow=new BrowserWindow({
@@ -26,15 +26,10 @@ ipc.on('show-settings', function() {
   settingsWindow.show();
 });
 
-function submitSettings(form)
+function submitSettings(numOfNodes,weightIncrease,multiplierIncrease)
 {
-  alert("THIS HAPPENS");
-  var numOfNodes=form.numOfNodes.value;
-  var weightIncrease=form.weightIncrease.value;
-  var multiplierIncrease=form.weightIncrease.value;
-
   ipcRenderer.send('settingsSubmission',{func: 'changeSettings',
-                                         params: [numOfNodes,weightIncrease,multiplierIncrease]});
+                                         params: [numOfNodes.value,weightIncrease.value,multiplierIncrease.value]});
   //close window
   settingsWindow.close();
 }
