@@ -6,8 +6,8 @@ const BrowserWindow = electron.BrowserWindow;  // Module to create native browse
 const ipcMain=require('electron').ipcMain;
 
 ipcMain.on('settingsSubmission',function(event,arg) {
-  
-}
+  //send data to c++ about changing settings here
+});
 
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -43,3 +43,13 @@ app.on('ready', function() {
     mainWindow = null;
   });
 });
+
+function showSettings()
+{
+  const BrowserWindow=require('electron').remote.BrowserWindow;
+  var win=new BrowserWindow({width:700,height:900});
+  win.on('closed',function() {
+    win=null;
+  });
+  win.loadURL('file://' + __dirname + '/Settings.html')
+}

@@ -22,6 +22,7 @@
   <script type="text/javascript" src="js/modernizr.js"></script>
   <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
   <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+  <script type="text/javascript" src="settings.js"></script>
 </head>
 <body>
   <div class="w-section">
@@ -39,14 +40,14 @@
             <label for="email">Weight Increase:</label>
             <div>Enter how much you want the weight of a node to increase when primed.
               <br>Remember, each node's weight can only be a maximum of 1, so keep your increase less than 1.</div>
-            <input id="weightIncrease" type="email" placeholder="Weight Increase" name="weightIncrease" data-name="weightIncrease" required="required" class="w-input">
+            <input id="weightIncrease" type="text" placeholder="Weight Increase" name="weightIncrease" data-name="weightIncrease" required="required" class="w-input">
             <div><strong>Multiplier Increase:</strong>
             </div>
             <div>Enter how much you want a node's multiplier to increase when primed.
               <br>A node's probability is found by multiplying its weight by its multiplier (among other things),
               <br>so it starts out at 1 and increases every time the node is primed.</div>
             <input id="multiplierIncrease" type="text" placeholder="Multiplier Increase" name="multiplierIncrease" required="required" data-name="multiplierIncrease" class="w-input">
-            <input type="submit" value="Submit" data-wait="Please wait..." class="w-button" onClick="submitSettings()">
+            <input type="submit" value="Submit" data-wait="Please wait..." class="w-button" onClick="submitSettings(document.email-form);">
           </form>
           <div class="w-form-done">
             <p>Thank you! Your submission has been received!</p>

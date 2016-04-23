@@ -12,11 +12,11 @@ app.on('ready',function() {
 
   var settingsWindow=new BrowserWindow ({
     width: 700,
-    height: 900
+    height: 900,
     show: false
   })
   settingsWindow.loadURL('file://' + __dirname + '/Settings.html')
-}
+});
 
 var settingsWindow = new BrowserWindow({width: 700, height: 900,
                                           show: false});
@@ -26,7 +26,7 @@ ipc.on('show-settings', function() {
   settingsWindow.show();
 });
 
-function submitSettings()
+function submitSettings(form)
 {
   var numOfNodes=form.numOfNodes.value;
   var weightIncrease=form.weightIncrease.value;
@@ -34,4 +34,6 @@ function submitSettings()
 
   ipcRenderer.send('settingsSubmission',{func: 'changeSettings',
                                          params: [numOfNodes,weightIncrease,multiplierIncrease]});
+  //close window
+  settingsWindow.close();
 }
