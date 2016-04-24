@@ -1,55 +1,41 @@
-'use strict';
+const ipcRenderer = require('electron').ipcRenderer;
 
-const electron = require('electron');
-const app = electron.app;  // Module to control application life.
-const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
-const ipcMain=require('electron').ipcMain;
+var dominantAttributeWeights = [];
+var secondartAttributeWeights = [];
 
-ipcMain.on('settingsSubmission',function(event,arg) {
-  //send data to c++ about changing settings here
-});
+function generateArray(count) {
 
+   dominantAttributeWeights = [];
+   secondartAttributeWeights = [];
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-var mainWindow = null;
-
-// Quit when all windows are closed.
-app.on('window-all-closed', function() {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform != 'darwin') {
-    app.quit();
-  }
-});
-
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-app.on('ready', function() {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1400, height: 900});
-
-  // and load the index.html of the app.
-  mainWindow.loadURL('file://' + __dirname + '/index.html');
-
-  // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
-
-  // Emitted when the window is closed.
-  mainWindow.on('closed', function() {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null;
-  });
-});
-
-function showSettings()
-{
-  const BrowserWindow=require('electron').remote.BrowserWindow;
-  var win=new BrowserWindow({width:700,height:900});
-  win.on('closed',function() {
-    win=null;
-  });
-  win.loadURL('file://' + __dirname + '/Settings.html')
+   for (var i = 0; i < count; i++) {
+      dominantAttributeWeights.push(i);
+      secondartAttributeWeights.push(i*2);
+   }
 }
+
+function reloadAttributes(){
+   var dominantMeaning = document.getElementById('dominantMeaning');
+   var secondaryMeaning = document.getElementById('secondaryMeaning');
+   dominantMeaning.innerHTML = '';
+   secondaryMeaning.innerHTML = '';
+   for (var i = 0; i < dominantAttributeWeights.length; i++) {
+      dominantMeaning.innerHTML +=   '<div class="w-clearfix attribute"><div class="attributeweight">'+dominantAttributeWeights[i]+'</div></div>';
+      secondaryMeaning.innerHTML +=  '<div class="w-clearfix attribute"><div class="attributeweight">'+secondartAttributeWeights[i]+'</div></div>';
+   }
+}
+
+function showParameters(){
+   ipcRenderer.send('showSettings');
+}
+
+ipcRenderer.on('new-Data', function (event, args) {
+   generateArray(args.attributeCount);
+   reloadAttributes();
+});
+
+window.onload = function () {
+   //default
+   generateArray(50);
+   reloadAttributes();
+};
